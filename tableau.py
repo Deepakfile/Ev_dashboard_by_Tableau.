@@ -8,10 +8,10 @@ st.set_page_config(page_title="EV Dashboard", layout="wide")
 BASE_DIR = Path(__file__).parent
 IMG_DIR = BASE_DIR / "images"
 
-bg_image = IMG_DIR / "ev_bg.png"
-d1 = IMG_DIR / "dashboard1.png"
-d2 = IMG_DIR / "dashboard2.png"
-d3 = IMG_DIR / "dashboard3.png"
+bg_image = IMG_DIR / "tab_bck.png"
+d1 = IMG_DIR / "WhatsApp Image 2026-03-05 at 2.47.05 AM.jpeg"
+d2 = IMG_DIR / "WhatsApp Image 2026-03-05 at 5.01.53 AM.jpeg"
+d3 = IMG_DIR / "WhatsApp Image 2026-03-05 at 7.33.42 AM.jpeg"
 
 # ---------- Background ----------
 def get_base64(file):
@@ -67,3 +67,4 @@ else:
 
     elif dashboard == "Dashboard 3":
         st.image(d3, use_container_width=True)
+
