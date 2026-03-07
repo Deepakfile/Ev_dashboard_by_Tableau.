@@ -64,10 +64,11 @@ else:
         url = "https://public.tableau.com/views/EV_project_D3/Dashboard4?:showVizHome=no&:embed=true"
 
     else:
-        url = "https://public.tableau.com/views/EV_project_Story/EVcarsinIndia?:showVizHome=no&:embed=true"
+        url = "https://public.tableau.com/views/EV_project_Story/EVcarsinIndia?:embed=true&:showVizHome=no"
 
-     st.markdown(f"""
-    <div style="transform: scale(1.8); transform-origin: 0 0;">
+    # ---------- Zoomed Dashboard ----------
+    st.markdown(f"""
+    <div style="transform: scale(1.6); transform-origin: 0 0;">
         <iframe src="{url}" width="1200" height="800"></iframe>
     </div>
     """, unsafe_allow_html=True)
