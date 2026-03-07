@@ -66,10 +66,11 @@ else:
     else:
         url = "https://public.tableau.com/views/EV_project_Story/EVcarsinIndia?:showVizHome=no&:embed=true"
 
-    col1, col2 = st.columns([2,1])
-
-    with col1:
-        st.components.v1.iframe(url, height=1900, width=2400)
+     st.markdown(f"""
+    <div style="transform: scale(1.8); transform-origin: 0 0;">
+        <iframe src="{url}" width="1200" height="800"></iframe>
+    </div>
+    """, unsafe_allow_html=True)
 
 
 
