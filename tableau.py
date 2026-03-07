@@ -69,9 +69,10 @@ else:
     # ---------- Zoomed Dashboard ----------
     st.markdown(f"""
     <div style="transform: scale(1.6); transform-origin: 0 0;">
-        <iframe src="{url}" width="1100" height="680"></iframe>
+        <iframe src="{url}" width="1100" height="600"></iframe>
     </div>
     """, unsafe_allow_html=True)
+
 
 
 
