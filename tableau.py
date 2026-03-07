@@ -4,7 +4,6 @@ from pathlib import Path
 
 st.set_page_config(page_title="EV Dashboard", layout="wide")
 
-# ---------- Background ----------
 BASE_DIR = Path(__file__).parent
 bg_image = BASE_DIR / "tab_bck.png"
 
@@ -29,7 +28,6 @@ color:white !important;
 </style>
 """, unsafe_allow_html=True)
 
-# ---------- Login ----------
 if "login" not in st.session_state:
     st.session_state.login = False
 
@@ -47,7 +45,6 @@ if not st.session_state.login:
         else:
             st.error("Invalid Login")
 
-# ---------- Main App ----------
 else:
 
     st.title("Electric Vehicle Analytics")
@@ -58,7 +55,7 @@ else:
     )
 
     if page == "Dashboard 1":
-        url = "https://public.tableau.com/views/YQ45N33X8/Dashboard1?:showVizHome=no&:embed=true"
+        url = "https://public.tableau.com/views/EV_projectD1/Dashboard2?:showVizHome=no&:embed=true"
 
     elif page == "Dashboard 2":
         url = "https://public.tableau.com/views/EV_project_D2/Dashboard3?:showVizHome=no&:embed=true"
@@ -72,4 +69,4 @@ else:
     col1, col2 = st.columns([2,1])
 
     with col1:
-        st.components.v1.iframe(url, height=900, width=900)
+        st.components.v1.iframe(url, height=900, width=1400)
