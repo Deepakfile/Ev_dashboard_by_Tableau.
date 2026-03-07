@@ -5,11 +5,7 @@ from pathlib import Path
 st.set_page_config(page_title="EV Dashboard", layout="wide")
 
 BASE_DIR = Path(__file__).parent
-
 bg_image = BASE_DIR / "tab_bck.png"
-d1 = BASE_DIR / "WhatsApp Image 2026-03-05 at 2.47.05 AM.jpeg"
-d2 = BASE_DIR / "WhatsApp Image 2026-03-05 at 5.01.53 AM.jpeg"
-d3 = BASE_DIR / "WhatsApp Image 2026-03-05 at 7.33.42 AM.jpeg"
 
 def get_base64(file):
     with open(file, "rb") as f:
@@ -17,8 +13,7 @@ def get_base64(file):
 
 img = get_base64(bg_image)
 
-st.markdown(
-    f"""
+st.markdown(f"""
 <style>
 [data-testid="stAppViewContainer"] {{
 background-image: url("data:image/png;base64,{img}");
@@ -26,41 +21,20 @@ background-size: cover;
 background-position: center;
 background-attachment: fixed;
 }}
-</style>
-""",
-    unsafe_allow_html=True,
-)
 
-# ADD THIS HERE
-st.markdown("""
-<style>
-h1, h2, h3, h4, h5, h6 {color:white !important;}
-label {color:white !important;}
-.stTextInput label {color:white !important;}
-.stSelectbox label {color:white !important;}
+h1,h2,h3,h4,h5,h6,label {{
+color:white !important;
+}}
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown(
-    f"""
-<style>
-[data-testid="stAppViewContainer"] {{
-background-image: url("data:image/png;base64,{img}");
-background-size: cover;
-background-position: center;
-background-attachment: fixed;
-}}
-</style>
-""",
-    unsafe_allow_html=True,
-)
 
-# ---------- Login ----------
 if "login" not in st.session_state:
     st.session_state.login = False
 
 if not st.session_state.login:
-    st.title("Login")
+
+    st.title("EV Dashboard Login")
 
     username = st.text_input("Username")
     password = st.text_input("Password", type="password")
@@ -70,24 +44,28 @@ if not st.session_state.login:
             st.session_state.login = True
             st.rerun()
         else:
-            st.error("Invalid login")
+            st.error("Invalid Login")
+
 
 else:
+
     st.title("Electric Vehicle Analytics")
 
-    dashboard = st.selectbox(
-        "Select Dashboard",
-        ["Dashboard 1", "Dashboard 2", "Dashboard 3"]
+    page = st.selectbox(
+        "Select Page",
+        ["Dashboard 1","Dashboard 2","Dashboard 3","Story Page"]
     )
 
-    if dashboard == "Dashboard 1":
-        st.image(d1, use_container_width=True)
+    if page == "Dashboard 1":
+        url = "https://public.tableau.com/shared/YQ45N33X8?:display_count=n&:origin=viz_share_link"
 
-    elif dashboard == "Dashboard 2":
-        st.image(d2, use_container_width=True)
+    elif page == "Dashboard 2":
+        url = "https://public.tableau.com/views/EV_project_D2/Dashboard3?:language=en-US&publish=yes&:display_count=n"
 
-    elif dashboard == "Dashboard 3":
-        st.image(d3, use_container_width=True)
+    elif page == "Dashboard 3":
+        url = "https://public.tableau.com/views/EV_project_D3/Dashboard4?:language=en-US&publish=yes&:display_count=n"
 
+    else:
+        url = "https://public.tableau.com/views/EV_project_Story/EVcarsinIndia?:language=en-US&publish=yes&:display_count=n"
 
-
+    st.components.v1.iframe(url, height=850, width=1400)
